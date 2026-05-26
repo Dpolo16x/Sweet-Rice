@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!--
+    ================================================
+    META TAGS: SEO y responsividad móvil
+    viewport: evita zoom automático en celulares
+    ================================================
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Arroz con Leche Delicioso en Funza y Mosquera. Pedidos a domicilio." />
+  <title>Sweet Rice</title>
+
+  <!--
+    ================================================
+    FUENTES DE GOOGLE FONTS
+    Playfair Display: elegante, para títulos
+    Nunito: amigable, redondeada, para cuerpo de texto
+    ================================================
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Estilos principales -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ================================================
+       BARRA DE NAVEGACIÓN
+       Fija en la parte superior. En móvil colapsa a
+       menú hamburguesa controlado por JS.
+       ================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo / Nombre de la marca -->
+      <a href="#inicio" class="nav-logo">
+        <span class="logo-icon">🍚</span>
+        <span class="logo-text">Sweet Rice</span>
+      </a>
+
+      <!-- Botón hamburguesa (solo visible en móvil) -->
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Links de navegación -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#inicio" class="nav-link">Inicio</a></li>
+        <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+        <li><a href="#menu" class="nav-link">Menú</a></li>
+        <li><a href="#pedido" class="nav-link nav-cta">Pedir ahora</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ================================================
+       SECCIÓN HERO (PORTADA)
+       Primera pantalla que ve el usuario. Tiene un
+       título llamativo, subtítulo y botón de acción.
+       La imagen de fondo es personalizable.
+       ================================================ -->
+  <section class="hero" id="inicio">
+    <!--
+      ZONA DE IMAGEN HERO:
+    -->
+    <div class="hero-bg-overlay"></div>
+
+    <!-- Partículas decorativas animadas (CSS puro) -->
+    <div class="hero-particles">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+
+    <div class="hero-content">
+      <!-- Etiqueta superior animada -->
+      <div class="hero-badge animate-fade-up" style="animation-delay:.1s">
+        🏠 Domicilios en Funza & Mosquera
+      </div>
+
+      <!-- Título principal -->
+      <h1 class="hero-title animate-fade-up" style="animation-delay:.25s">
+        El más <em>delicioso</em><br />
+        Arroz con Leche
+      </h1>
+
+      <!-- Descripción corta -->
+      <p class="hero-subtitle animate-fade-up" style="animation-delay:.4s">
+        Recetas artesanales con amor desde Funza.<br />
+        Llegamos hasta tu puerta en Funza y Mosquera.
+      </p>
+
+      <!-- Botones de acción -->
+      <div class="hero-actions animate-fade-up" style="animation-delay:.55s">
+        <a href="#pedido" class="btn btn-primary">Hacer mi pedido</a>
+        <a href="#menu" class="btn btn-outline">Ver menú</a>
+      </div>
+
+      <!-- Indicadores de confianza -->
+      <div class="hero-trust animate-fade-up" style="animation-delay:.7s">
+        <span>⭐ Hecho artesanal</span>
+        <span>🚀 Entrega rápida</span>
+        <span>❤️ Con amor desde Funza</span>
+      </div>
+    </div>
+
+    
+    <div class="hero-image animate-fade-left" style="animation-delay:.3s">
+      <div class="hero-img-wrapper">
+      
+        <img
+          src="img/principal.jpeg"
+          alt="Arroz con leche delicioso"
+          class="hero-img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <!-- Placeholder si no hay imagen todavía -->
+        <div class="img-placeholder hero-placeholder" style="display:none;">
+          <span>🍚</span>
+          <p>Agrega tu foto aquí<br><small>img/hero-arroz.jpg</small></p>
+        </div>
+      </div>
+      <!-- Sticker decorativo animado -->
+      <div class="hero-sticker">¡Fresquito!</div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       SECCIÓN QUIÉNES SOMOS
+       Historia, valores y datos de confianza.
+       ================================================ -->
+  <section class="nosotros" id="nosotros">
+    <div class="container">
+
+      <!-- Encabezado de sección -->
+      <div class="section-header">
+        <span class="section-tag">Nuestra historia</span>
+        <h2 class="section-title">¿Quiénes somos?</h2>
+        <p class="section-subtitle">
+          Una historia de sabor, familia y tradición desde Funza, Cundinamarca.
+        </p>
+      </div>
+
+      <div class="nosotros-grid">
+
+        <!--
+          ZONA DE IMAGEN NOSOTROS:
+        -->
+        <div class="nosotros-img-col reveal-left">
+          <div class="nosotros-img-frame">
+        
+            <img
+              src="img/Funza.jpg"
+              alt="Nuestro equipo en Funza"
+              class="nosotros-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="img-placeholder" style="display:none; min-height:320px;">
+              <span>📸</span>
+              <p>Tu foto aquí<br><small>img/nosotros.jpg</small></p>
+            </div>
+            <!-- Tarjeta flotante sobre la imagen -->
+            <div class="nosotros-card-float">
+              <span class="float-icon">🏡</span>
+              <div>
+                <strong>100% Funza</strong>
+                <small>Hecho con amor local</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto e historia -->
+        <div class="nosotros-text-col reveal-right">
+          <p class="nosotros-lead">
+            Somos una empresa familiar nacida en el corazón de
+            <strong>Funza, Cundinamarca</strong>, con una pasión
+            enorme por los sabores que nos recuerdan a casa.
+          </p>
+          <p class="nosotros-body">
+            Todo comenzó con una receta que pasó de generación en generación:
+            un arroz con leche cremoso, suave y lleno de amor. Hoy, lo que
+            empezó en nuestra cocina se convirtió en el postre favorito de
+            cientos de familias en Funza y Mosquera.
+          </p>
+          <p class="nosotros-body">
+            Cada porción la preparamos <strong>de manera artesanal</strong>,
+            sin conservantes, con ingredientes frescos seleccionados, y con
+            el cuidado que merece un producto que lleva nuestro nombre.
+            Porque para nosotros, cada pedido es una oportunidad de llevar
+            un momento de felicidad a tu hogar.
+          </p>
+          <p class="nosotros-body">
+            Hacemos <strong>domicilios en Funza y Mosquera</strong> para que
+            no tengas que salir a buscarnos — somos nosotros quienes llegamos
+            hasta donde estás tú. 🛵
+          </p>
+
+          <!-- Características / valores -->
+          <div class="nosotros-features">
+            <div class="feature-item">
+              <span class="feature-icon">🥛</span>
+              <div>
+                <strong>Ingredientes frescos</strong>
+                <small>Sin conservantes</small>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">👩‍🍳</span>
+              <div>
+                <strong>Receta artesanal</strong>
+                <small>Hecha con amor</small>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🛵</span>
+              <div>
+                <strong>Domicilios rápidos</strong>
+                <small>Funza & Mosquera</small>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">❤️</span>
+              <div>
+                <strong>Familia local</strong>
+                <small>Desde Funza</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Datos de contacto rápido -->
+          <div class="nosotros-contact">
+            <a href="https://wa.me/573204371555" target="_blank" class="contact-chip">
+               320 437 1555
+            </a>
+            <a href="https://wa.me/573028337213" target="_blank" class="contact-chip">
+               302 833 7213
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       SECCIÓN GALERÍA DE PRODUCTOS
+       Muestra fotos de los arroces. Cada .gallery-item
+       tiene un espacio para imagen personalizable.
+       ================================================ -->
+  <section class="galeria" id="galeria">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">Nuestros sabores</span>
+        <h2 class="section-title">Una foto vale más que mil palabras</h2>
+      </div>
+
+      <!--
+        GALERÍA DE FOTOS:
+      -->
+      <div class="gallery-grid">
+
+        <div class="gallery-item reveal-up" style="animation-delay:.0s">
+          <img src="img/queso.jpeg" alt="Arroz con queso" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="img-placeholder" style="display:none;"><span>🍚</span><p>img/galeria-1.jpg</p></div>
+          <div class="gallery-label">Con queso</div>
+        </div>
+
+        <div class="gallery-item reveal-up" style="animation-delay:.1s">
+          <img src="img/arequipe_queso.jpeg" alt="Arroz con arequipe" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="img-placeholder" style="display:none;"><span>🍯</span><p>img/galeria-2.jpg</p></div>
+          <div class="gallery-label">Con arequipe</div>
+        </div>
+
+        <div class="gallery-item reveal-up" style="animation-delay:.2s">
+          <img src="img/mora_queso.jpeg" alt="Arroz con mora" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="img-placeholder" style="display:none;"><span>🫐</span><p>img/galeria-3.jpg</p></div>
+          <div class="gallery-label">Con mora y queso</div>
+        </div>
+
+        <div class="gallery-item reveal-up" style="animation-delay:.3s">
+          <img src="img/uvas_queso.jpeg" alt="Arroz con uvas pasas" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="img-placeholder" style="display:none;"><span>🍇</span><p>img/galeria-4.jpg</p></div>
+          <div class="gallery-label">Con uvas pasas</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       SECCIÓN MENÚ / PRODUCTOS
+       Muestra todas las opciones con precios.
+       Las tarjetas tienen animación al hacer hover.
+       ================================================ -->
+  <section class="menu" id="menu">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">Lo que tenemos</span>
+        <h2 class="section-title">Nuestro menú</h2>
+        <p class="section-subtitle">Sabores para todos los gustos. Artesanal, cremoso y con mucho amor.</p>
+      </div>
+
+      <!-- Grupo 1: 12 onzas -->
+      <div class="menu-group">
+        <div class="menu-group-header">
+          <h3>12 onzas</h3>
+          <span class="menu-group-price">$5.000</span>
+        </div>
+        <div class="menu-cards">
+
+          <div class="menu-card reveal-up">
+            <!--
+              ZONA DE IMAGEN DEL PRODUCTO:
+      
+            -->
+            <div class="menu-card-img">
+              <img src="img/queso.jpeg" alt="Arroz con queso" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="img-placeholder" style="display:none;"><span>🧀</span><p>img/prod-queso.jpg</p></div>
+            </div>
+            <div class="menu-card-body">
+              <span class="menu-card-badge">12 oz</span>
+              <h4>Solo queso</h4>
+              <p>Arroz cremoso con trozos de queso fresco. El clásico de siempre.</p>
+              <div class="menu-card-footer">
+                <span class="menu-card-price">$5.000</span>
+                <a href="#pedido" class="btn-order">Pedir</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal-up" style="animation-delay:.1s">
+            <div class="menu-card-img">
+              <img src="img/uvas_queso.jpeg" alt="Arroz con uvas y queso" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="img-placeholder" style="display:none;"><span>🍇</span><p>img/prod-uvas-queso.jpg</p></div>
+            </div>
+            <div class="menu-card-body">
+              <span class="menu-card-badge">12 oz</span>
+              <h4>Uvas pasas + queso</h4>
+              <p>La combinación perfecta de dulzura y sabor salado.</p>
+              <div class="menu-card-footer">
+                <span class="menu-card-price">$5.000</span>
+                <a href="#pedido" class="btn-order">Pedir</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal-up" style="animation-delay:.2s">
+            <div class="menu-card-img">
+              <img src="img/arequipe_queso.jpeg" alt="Arroz con arequipe y queso" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="img-placeholder" style="display:none;"><span>🍯</span><p>img/prod-arequipe-queso.jpg</p></div>
+            </div>
+            <div class="menu-card-body">
+              <span class="menu-card-badge">12 oz</span>
+              <h4>Arequipe + queso</h4>
+              <p>Dulce arequipe con queso salado — contraste irresistible.</p>
+              <div class="menu-card-footer">
+                <span class="menu-card-price">$5.000</span>
+                <a href="#pedido" class="btn-order">Pedir</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal-up" style="animation-delay:.3s">
+            <div class="menu-card-img">
+              <img src="img/uvas.jpeg" alt="Arroz con uvas pasas" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="img-placeholder" style="display:none;"><span>🍇</span><p>img/prod-uvas.jpg</p></div>
+            </div>
+            <div class="menu-card-body">
+              <span class="menu-card-badge">12 oz</span>
+              <h4>Solo uvas pasas</h4>
+              <p>Dulces y jugosas uvas pasas integradas al arroz cremoso.</p>
+              <div class="menu-card-footer">
+                <span class="menu-card-price">$5.000</span>
+                <a href="#pedido" class="btn-order">Pedir</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal-up" style="animation-delay:.4s">
+            <div class="menu-card-img">
+              <img src="img/arequipe.jpg" alt="Arroz solo arequipe" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="img-placeholder" style="display:none;"><span>🍮</span><p>img/prod-arequipe.jpg</p></div>
+            </div>
+            <div class="menu-card-body">
+              <span class="menu-card-badge">12 oz</span>
+              <h4>Solo arequipe</h4>
+              <p>Arroz suave con generosa capa de arequipe colombiano.</p>
+              <div class="menu-card-footer">
+                <span class="menu-card-price">$5.000</span>
+                <a href="#pedido" class="btn-order">Pedir</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Grupo 2: 14 onzas $10.000 -->
+      <div class="menu-group">
+        <div class="menu-group-header">
+          <h3>14 onzas</h3>
+          <span class="menu-group-price">$10.000</span>
+        </div>
+        <div class="menu-cards">
+
+          <div class="menu-card menu-card--featured reveal-up">
+            <div class="menu-card-img">
+              <img src="img/arequipe.jpg" alt="Arequipe solo 14oz" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="img-placeholder" style="display:none;"><span>🍯</span><p>img/prod-arequipe-grande.jpg</p></div>
+            </div>
+            <div class="menu-card-body">
+              <span class="menu-card-badge badge--gold">14 oz · Popular</span>
+              <h4>Arequipe solo</h4>
+              <p>La versión grande del favorito. Más arroz, más arequipe, más felicidad.</p>
+              <div class="menu-card-footer">
+                <span class="menu-card-price">$10.000</span>
+                <a href="#pedido" class="btn-order">Pedir</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal-up" style="animation-delay:.1s">
+            <div class="menu-card-img">
+              <img src="img/arequipe_queso.jpeg" alt="Arequipe con queso 14oz" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="img-placeholder" style="display:none;"><span>🧀</span><p>img/prod-arequipe-queso-grande.jpg</p></div>
+            </div>
+            <div class="menu-card-body">
+              <span class="menu-card-badge">14 oz</span>
+              <h4>Arequipe + queso</h4>
+              <p>Combinación estrella en tamaño grande. Dulce y salado en cada cucharada.</p>
+              <div class="menu-card-footer">
+                <span class="menu-card-price">$10.000</span>
+                <a href="#pedido" class="btn-order">Pedir</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Grupo 3: 14 onzas $14.000 (Nuevo) -->
+      <div class="menu-group">
+        <div class="menu-group-header">
+          <h3>14 onzas — Especial</h3>
+          <span class="menu-group-price menu-group-price--new">$14.000 · ¡Nuevo!</span>
+        </div>
+        <div class="menu-cards">
+
+          <div class="menu-card menu-card--special reveal-up">
+            <div class="menu-card-img">
+              <img src="img/mora_queso.jpeg" alt="Salsa de mora con queso" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="img-placeholder" style="display:none;"><span>🫐</span><p>img/prod-mora-queso.jpg</p></div>
+            </div>
+            <div class="menu-card-body">
+              <span class="menu-card-badge badge--nuevo">¡NUEVO!</span>
+              <h4>Salsa de mora + queso</h4>
+              <p>Nuestra nueva creación estrella. Salsa de mora artesanal con queso fresco sobre arroz cremoso.</p>
+              <div class="menu-card-footer">
+                <span class="menu-card-price">$14.000</span>
+                <a href="#pedido" class="btn-order">Pedir</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       SECCIÓN FORMULARIO DE PEDIDO
+       Aquí el usuario selecciona productos, pone sus
+       datos y envía el pedido. El JS en pedido.js
+       calcula totales y construye el mensaje de WhatsApp.
+       ================================================ -->
+  <section class="pedido-section" id="pedido">
+    <div class="container">
+
+      <div class="section-header section-header--light">
+        <span class="section-tag section-tag--light">Fácil y rápido</span>
+        <h2 class="section-title" style="color:#fff;">Haz tu pedido</h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,.75);">
+          Selecciona lo que quieres, llena tus datos y te contactamos por WhatsApp.
+        </p>
+      </div>
+
+      <div class="pedido-wrapper">
+
+        <!-- COLUMNA IZQUIERDA: Selector de productos -->
+        <div class="pedido-productos">
+          <h3 class="pedido-subtitle">1. Elige tus productos</h3>
+
+          <!-- Grupo 12 oz -->
+          <div class="prod-group">
+            <div class="prod-group-label">
+              <span>12 onzas</span>
+              <span class="prod-group-price">$5.000 c/u</span>
+            </div>
+
+            <!-- Cada .prod-item tiene data-price para el JS -->
+            <div class="prod-item" data-price="5000" data-name="Arroz 12oz - Solo queso">
+              <div class="prod-item-info">
+                <span class="prod-emoji">🧀</span>
+                <div>
+                  <strong>Solo queso</strong>
+                  <small>12 oz · $5.000</small>
+                </div>
+              </div>
+              <div class="prod-qty-ctrl">
+                <button class="qty-btn qty-minus" aria-label="Restar">−</button>
+                <span class="qty-val">0</span>
+                <button class="qty-btn qty-plus" aria-label="Sumar">+</button>
+              </div>
+            </div>
+
+            <div class="prod-item" data-price="5000" data-name="Arroz 12oz - Uvas pasas + queso">
+              <div class="prod-item-info">
+                <span class="prod-emoji">🍇</span>
+                <div>
+                  <strong>Uvas pasas + queso</strong>
+                  <small>12 oz · $5.000</small>
+                </div>
+              </div>
+              <div class="prod-qty-ctrl">
+                <button class="qty-btn qty-minus" aria-label="Restar">−</button>
+                <span class="qty-val">0</span>
+                <button class="qty-btn qty-plus" aria-label="Sumar">+</button>
+              </div>
+            </div>
+
+            <div class="prod-item" data-price="5000" data-name="Arroz 12oz - Arequipe + queso">
+              <div class="prod-item-info">
+                <span class="prod-emoji">🍯</span>
+                <div>
+                  <strong>Arequipe + queso</strong>
+                  <small>12 oz · $5.000</small>
+                </div>
+              </div>
+              <div class="prod-qty-ctrl">
+                <button class="qty-btn qty-minus" aria-label="Restar">−</button>
+                <span class="qty-val">0</span>
+                <button class="qty-btn qty-plus" aria-label="Sumar">+</button>
+              </div>
+            </div>
+
+            <div class="prod-item" data-price="5000" data-name="Arroz 12oz - Solo uvas pasas">
+              <div class="prod-item-info">
+                <span class="prod-emoji">🍇</span>
+                <div>
+                  <strong>Solo uvas pasas</strong>
+                  <small>12 oz · $5.000</small>
+                </div>
+              </div>
+              <div class="prod-qty-ctrl">
+                <button class="qty-btn qty-minus" aria-label="Restar">−</button>
+                <span class="qty-val">0</span>
+                <button class="qty-btn qty-plus" aria-label="Sumar">+</button>
+              </div>
+            </div>
+
+            <div class="prod-item" data-price="5000" data-name="Arroz 12oz - Solo arequipe">
+              <div class="prod-item-info">
+                <span class="prod-emoji">🍮</span>
+                <div>
+                  <strong>Solo arequipe</strong>
+                  <small>12 oz · $5.000</small>
+                </div>
+              </div>
+              <div class="prod-qty-ctrl">
+                <button class="qty-btn qty-minus" aria-label="Restar">−</button>
+                <span class="qty-val">0</span>
+                <button class="qty-btn qty-plus" aria-label="Sumar">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grupo 14 oz $10.000 -->
+          <div class="prod-group">
+            <div class="prod-group-label">
+              <span>14 onzas</span>
+              <span class="prod-group-price">$10.000 c/u</span>
+            </div>
+
+            <div class="prod-item" data-price="10000" data-name="Arroz 14oz - Arequipe solo">
+              <div class="prod-item-info">
+                <span class="prod-emoji">🍯</span>
+                <div>
+                  <strong>Arequipe solo</strong>
+                  <small>14 oz · $10.000</small>
+                </div>
+              </div>
+              <div class="prod-qty-ctrl">
+                <button class="qty-btn qty-minus" aria-label="Restar">−</button>
+                <span class="qty-val">0</span>
+                <button class="qty-btn qty-plus" aria-label="Sumar">+</button>
+              </div>
+            </div>
+
+            <div class="prod-item" data-price="10000" data-name="Arroz 14oz - Arequipe + queso">
+              <div class="prod-item-info">
+                <span class="prod-emoji">🧀</span>
+                <div>
+                  <strong>Arequipe + queso</strong>
+                  <small>14 oz · $10.000</small>
+                </div>
+              </div>
+              <div class="prod-qty-ctrl">
+                <button class="qty-btn qty-minus" aria-label="Restar">−</button>
+                <span class="qty-val">0</span>
+                <button class="qty-btn qty-plus" aria-label="Sumar">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grupo 14 oz $14.000 Especial -->
+          <div class="prod-group prod-group--special">
+            <div class="prod-group-label">
+              <span>14 onzas — Especial</span>
+              <span class="prod-group-price" style="color:#e91e63;">$14.000 · ¡Nuevo!</span>
+            </div>
+
+            <div class="prod-item" data-price="14000" data-name="Arroz 14oz Especial - Salsa de mora + queso">
+              <div class="prod-item-info">
+                <span class="prod-emoji">🫐</span>
+                <div>
+                  <strong>Salsa de mora + queso</strong>
+                  <small>14 oz · $14.000</small>
+                </div>
+              </div>
+              <div class="prod-qty-ctrl">
+                <button class="qty-btn qty-minus" aria-label="Restar">−</button>
+                <span class="qty-val">0</span>
+                <button class="qty-btn qty-plus" aria-label="Sumar">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resumen del total -->
+          <div class="pedido-total-bar">
+            <span>Total del pedido</span>
+            <strong id="total-display">$0</strong>
+          </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: Datos del cliente -->
+        <div class="pedido-form">
+          <h3 class="pedido-subtitle">2. Tus datos</h3>
+
+          <!-- Campo: Nombre -->
+          <div class="form-group">
+            <label for="f-nombre">Tu nombre completo *</label>
+            <input type="text" id="f-nombre" placeholder="¿Cómo te llamamos?" required />
+          </div>
+
+          <!-- Campo: WhatsApp -->
+          <div class="form-group">
+            <label for="f-telefono">Número de WhatsApp *</label>
+            <input type="tel" id="f-telefono" placeholder="Ej: 310 000 0000" required />
+          </div>
+
+          <!-- Campo: Dirección -->
+          <div class="form-group">
+            <label for="f-direccion">Dirección de entrega *</label>
+            <input type="text" id="f-direccion" placeholder="Calle, carrera, barrio..." required />
+          </div>
+
+          <!-- CAMPO PARA CIUDAD:
+              - L -->
+          <div class="form-group">
+            <label for="f-ciudad">Ciudad</label>
+            <select id="f-ciudad">
+              <option value="Funza">Funza</option>
+              <option value="Mosquera">Mosquera</option>
+            </select>
+          </div>
+
+          <!-- CAMPO PARA NOTA:
+                - los clientes pueden agregar notas especiales a su pedido -->
+          <div class="form-group">
+            <label for="f-nota">Nota especial (opcional)</label>
+            <textarea id="f-nota" rows="3" placeholder="Alguna indicación extra para tu pedido..."></textarea>
+          </div>
+
+          <!-- BOTON ENVIAR -->
+          <button class="btn-pedido" id="btn-pedido" disabled>
+            Enviar pedido
+          </button>
+
+          <!-- MENSAJE ADVERTENCIA: si no hay productos -->
+          <p class="pedido-hint" id="pedido-hint">
+            Selecciona al menos un producto para continuar.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       MENSAJE DE CONFIRMICACION:
+       - Sale cuando el usuario hace clic en "Enviar".
+       - Muestra el mensaje "Estamos gestionando tu pedido".
+       - Controlado por JS en pedido.js
+       ================================================ -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal-confirm">
+      <div class="modal-icon">🎉</div>
+      <h2 class="modal-title">¡Pedido recibido!</h2>
+      <p class="modal-msg">
+        Estamos gestionando tu pedido.<br />
+        <strong>Estate atento a nuestro chat de WhatsApp</strong>,
+        te confirmaremos los detalles y tiempo de entrega muy pronto. 🛵
+      </p>
+      <div class="modal-detail" id="modal-detail">
+        <!-- El JS inserta aquí el resumen del pedido -->
+      </div>
+      <button class="btn btn-primary" id="modal-close">Entendido</button>
+    </div>
+  </div>
+
+
+  <!-- ================================================
+       FOOTER
+       Información de contacto, redes y créditos.
+       ================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Columna: Logo y descripción -->
+        <div class="footer-col footer-brand">
+          <span class="footer-logo">🍚 Arroz con Leche Delicioso</span>
+          <p>Hecho con amor desde Funza, Cundinamarca. Domicilios en Funza y Mosquera.</p>
+          <div class="footer-phones">
+            <a href="https://wa.me/573204371555" target="_blank">📱 320 437 1555</a>
+            <a href="https://wa.me/573028337213" target="_blank">📱 302 833 7213</a>
+          </div>
+        </div>
+
+        <!-- Columna: Links rápidos -->
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Quiénes somos</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#pedido">Hacer pedido</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna: Zonas de entrega -->
+        <div class="footer-col">
+          <h4>Cobertura</h4>
+          <ul>
+            <li> - Funza</li>
+            <li> - Mosquera</li>
+            <li> - Horarios por WhatsApp</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Línea inferior del footer -->
+      <div class="footer-bottom">
+        <p>© 2026 Sweet Rice. Hecho con amor en Funza - Cundinamarca.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ================================================
+       BOTÓN FLOTANTE DE WHATSAPP
+       Visible en todo momento. Al hacer clic abre
+       WhatsApp directamente con un mensaje predefinido.
+       ================================================ -->
+  <a
+    href="https://wa.me/573204371555?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20arroz%20con%20leche%20%F0%9F%8D%9A"
+    target="_blank"
+    class="whatsapp-float"
+    aria-label="Escribir por WhatsApp"
+  >
+    <!-- Ícono SVG de WhatsApp -->
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="whatsapp-pulse"></span>
+  </a>
+
+
+  <!-- Invocacion de los scripts  -->
+  <script src="js/main.js"></script>
+  <script src="js/pedidos.js"></script>
+
+</body>
+</html>

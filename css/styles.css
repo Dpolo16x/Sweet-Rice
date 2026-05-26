@@ -1,0 +1,1624 @@
+/*
+==============================================================
+  ARROZ CON LECHE DELICIOSO — Estilos principales
+  Archivo: css/styles.css
+  
+  Estructura:
+  1. Variables y reset base
+  2. Tipografía
+  3. Componentes reutilizables (botones, secciones)
+  4. Navbar
+  5. Hero
+  6. Nosotros
+  7. Galería
+  8. Menú
+  9. Formulario de pedido
+  10. Modal
+  11. Footer
+  12. Botón flotante WhatsApp
+  13. Animaciones
+  14. Media queries (responsividad)
+==============================================================
+*/
+
+
+/* ============================================================
+   1. VARIABLES GLOBALES Y RESET
+   ============================================================ */
+
+/* Variables CSS — cambia aquí los colores principales */
+:root {
+  /* Paleta de colores */
+  --color-primary:     #8B3A12;   /* Marrón cálido principal */
+  --color-primary-dark:#5C2409;   /* Variante oscura para hover */
+  --color-primary-light:#C1602A;  /* Variante clara */
+  --color-accent:      #E8A045;   /* Dorado/ámbar acento */
+  --color-accent-dark: #C47D1E;
+  --color-cream:       #FDF6EE;   /* Fondo crema cálido */
+  --color-cream-dark:  #F5E8D5;
+  --color-bg:          #FFFAF5;   /* Fondo general */
+  --color-text:        #2C1A0E;   /* Texto principal oscuro */
+  --color-text-mid:    #6B4226;   /* Texto secundario */
+  --color-text-light:  #A07050;   /* Texto terciario/hints */
+  --color-border:      #EDD9C0;   /* Bordes suaves */
+  --color-white:       #FFFFFF;
+  --color-success:     #2E7D32;
+  --color-whatsapp:    #25D366;
+  --color-mora:        #9C27B0;   /* Para el producto de mora */
+
+  /* Tipografía */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Nunito', Arial, sans-serif;
+
+  /* Espaciado */
+  --space-xs:   0.5rem;
+  --space-sm:   1rem;
+  --space-md:   1.5rem;
+  --space-lg:   2.5rem;
+  --space-xl:   4rem;
+  --space-xxl:  6rem;
+
+  /* Bordes */
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  22px;
+  --radius-xl:  32px;
+  --radius-full: 9999px;
+
+  /* Sombras */
+  --shadow-sm:  0 2px 8px rgba(139,58,18,0.08);
+  --shadow-md:  0 6px 24px rgba(139,58,18,0.12);
+  --shadow-lg:  0 16px 48px rgba(139,58,18,0.18);
+  --shadow-card:0 4px 20px rgba(139,58,18,0.10);
+
+  /* Transiciones */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Reset universal */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scroll suave al hacer clic en links de navegación */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* Estilos base del body */
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.7;
+  overflow-x: hidden; /* Evita scroll horizontal en móvil */
+}
+
+/* Imágenes responsivas por defecto */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Eliminar decoración de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Lista sin bullets */
+ul { list-style: none; }
+
+
+/* ============================================================
+   2. TIPOGRAFÍA
+   ============================================================ */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.6rem, 4vw, 2.6rem); }
+h3 { font-size: clamp(1.2rem, 3vw, 1.7rem); }
+h4 { font-size: clamp(1rem, 2vw, 1.2rem); }
+
+/* clamp() ajusta el tamaño automáticamente entre móvil y desktop */
+
+
+/* ============================================================
+   3. COMPONENTES REUTILIZABLES
+   ============================================================ */
+
+/* Contenedor principal — limita el ancho y centra */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Encabezados de sección */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.section-tag {
+  display: inline-block;
+  background: var(--color-cream-dark);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+}
+
+.section-tag--light {
+  background: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+}
+
+.section-title {
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  color: var(--color-text-mid);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Botones principales */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+  text-align: center;
+}
+
+/* Botón primario (marrón sólido) */
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Botón contorno (transparente con borde) */
+.btn-outline {
+  background: transparent;
+  color: var(--color-white);
+  border-color: rgba(255,255,255,0.6);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* Placeholder cuando no hay imagen */
+.img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-cream-dark);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  color: var(--color-text-light);
+  text-align: center;
+  min-height: 200px;
+}
+.img-placeholder span { font-size: 2.5rem; }
+.img-placeholder p { font-size: 0.82rem; line-height: 1.4; }
+.img-placeholder small { font-size: 0.72rem; opacity: 0.7; }
+
+
+/* ============================================================
+   4. NAVBAR — Barra de navegación
+   ============================================================ */
+
+.navbar {
+  position: fixed;       /* Fija en la parte superior */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;         /* Sobre todo el contenido */
+  background: rgba(253, 246, 238, 0.92);
+  backdrop-filter: blur(12px);  /* Efecto de cristal/blur */
+  border-bottom: 1px solid var(--color-border);
+  transition: var(--transition);
+}
+
+/* Clase que añade sombra al hacer scroll (JS en main.js) */
+.navbar.scrolled {
+  box-shadow: var(--shadow-md);
+  background: rgba(253, 246, 238, 0.98);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.logo-icon { font-size: 1.4rem; }
+
+/* Links del menú */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  transition: var(--transition);
+}
+.nav-link:hover {
+  background: var(--color-cream-dark);
+  color: var(--color-primary);
+}
+
+/* Botón "Pedir ahora" en el nav */
+.nav-cta {
+  background: var(--color-primary);
+  color: var(--color-white) !important;
+  padding: 0.5rem 1.2rem;
+}
+.nav-cta:hover {
+  background: var(--color-primary-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Botón hamburguesa — solo visible en móvil */
+.hamburger {
+  display: none;  /* Oculto en desktop */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+.hamburger span {
+  width: 26px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: var(--transition);
+  display: block;
+}
+
+/* Animación del hamburguesa cuando el menú está abierto */
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* ============================================================
+   5. HERO — Sección principal de portada
+   ============================================================ */
+
+.hero {
+  min-height: 100vh;       /* Ocupa toda la pantalla */
+  padding-top: 80px;       /* Espacio para la navbar fija */
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  /*
+    IMAGEN DE FONDO DEL HERO:
+    Para poner una imagen de fondo detrás del hero, descomenta
+    y cambia la ruta:
+    background-image: url('../img/fondo-hero.jpg');
+    background-size: cover;
+    background-position: center;
+  */
+  background: linear-gradient(135deg, #FDF6EE 0%, #F5E0C0 40%, #ECC898 100%);
+}
+
+/* Overlay decorativo para dar profundidad */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(232,160,69,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Partículas decorativas flotantes (hechas en CSS puro) */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.hero-particles span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0.25;
+  animation: floatParticle 8s infinite ease-in-out;
+}
+/* Posición y delay distintos para cada partícula */
+.hero-particles span:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; width: 6px; height: 6px; }
+.hero-particles span:nth-child(2) { left: 80%; top: 15%; animation-delay: 1.5s; width: 10px; height: 10px; }
+.hero-particles span:nth-child(3) { left: 25%; top: 70%; animation-delay: 3s; width: 5px; height: 5px; }
+.hero-particles span:nth-child(4) { left: 65%; top: 75%; animation-delay: 0.8s; width: 8px; height: 8px; }
+.hero-particles span:nth-child(5) { left: 45%; top: 10%; animation-delay: 2s; width: 6px; height: 6px; }
+.hero-particles span:nth-child(6) { left: 90%; top: 50%; animation-delay: 4s; width: 7px; height: 7px; }
+
+@keyframes floatParticle {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.3); }
+}
+
+/* Layout del hero en dos columnas */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 100px;
+  padding-bottom: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Contenido de texto */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  z-index: 1;
+}
+
+/* Etiqueta pequeña sobre el título */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(139,58,18,0.1);
+  border: 1px solid rgba(139,58,18,0.2);
+  color: var(--color-primary);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  width: fit-content;
+}
+
+/* Título principal con cursiva decorativa */
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  color: var(--color-text);
+  line-height: 1.15;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+/* Subtítulo */
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-mid);
+  line-height: 1.6;
+}
+
+/* Botones del hero */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Los botones del hero tienen colores sólidos */
+.hero-actions .btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.hero-actions .btn-outline {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.hero-actions .btn-outline:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Indicadores de confianza bajo los botones */
+.hero-trust {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+/* Columna de imagen del hero */
+.hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Marco de la imagen hero */
+.hero-img-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+}
+
+/* La imagen del hero */
+.hero-img {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+  aspect-ratio: 1;  /* Cuadrada por defecto */
+  box-shadow: var(--shadow-lg);
+}
+
+/* Sticker animado sobre la imagen */
+.hero-sticker {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  transform: rotate(8deg);
+  box-shadow: var(--shadow-md);
+  animation: wiggle 3s infinite ease-in-out;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(8deg) scale(1); }
+  50% { transform: rotate(12deg) scale(1.05); }
+}
+
+
+/* ============================================================
+   6. SECCIÓN NOSOTROS
+   ============================================================ */
+
+.nosotros {
+  padding: var(--space-xxl) 0;
+  background: var(--color-white);
+}
+
+/* Layout en dos columnas */
+.nosotros-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* Imagen de nosotros */
+.nosotros-img-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: visible;
+}
+
+.nosotros-img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Tarjeta flotante sobre la imagen */
+.nosotros-card-float {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+}
+.float-icon { font-size: 1.75rem; }
+.nosotros-card-float strong { display: block; font-size: 0.9rem; color: var(--color-text); }
+.nosotros-card-float small { font-size: 0.78rem; color: var(--color-text-light); }
+
+/* Texto de nosotros */
+.nosotros-lead {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+.nosotros-body {
+  color: var(--color-text-mid);
+  margin-bottom: 0.85rem;
+  font-size: 0.97rem;
+}
+
+/* Grilla de características */
+.nosotros-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin: 1.5rem 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  background: var(--color-cream);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: var(--transition);
+}
+.feature-item:hover {
+  background: var(--color-cream-dark);
+  transform: translateY(-2px);
+}
+
+.feature-icon { font-size: 1.5rem; flex-shrink: 0; }
+.feature-item strong { font-size: 0.9rem; color: var(--color-text); display: block; }
+.feature-item small { font-size: 0.78rem; color: var(--color-text-light); }
+
+/* Chips de contacto */
+.nosotros-contact {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+.contact-chip:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* ============================================================
+   7. GALERÍA DE FOTOS
+   ============================================================ */
+
+.galeria {
+  padding: var(--space-xxl) 0;
+  background: var(--color-cream);
+}
+
+/* Grilla de 4 columnas en desktop, 2 en tablet, 1 en móvil */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 1;  /* Cuadrada */
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom en hover de imagen de galería */
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* Etiqueta en la parte inferior de la galería */
+.gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(44,26,14,0.85));
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 1.5rem 1rem 0.85rem;
+  transform: translateY(100%);
+  transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-label {
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   8. SECCIÓN MENÚ
+   ============================================================ */
+
+.menu {
+  padding: var(--space-xxl) 0;
+  background: var(--color-bg);
+}
+
+/* Cada grupo de productos (por precio) */
+.menu-group {
+  margin-bottom: 3.5rem;
+}
+
+/* Cabecera del grupo */
+.menu-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: 1.5rem;
+}
+
+.menu-group-header h3 {
+  font-family: var(--font-display);
+  color: var(--color-text);
+}
+
+.menu-group-price {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.4rem 1.2rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.menu-group-price--new {
+  background: var(--color-mora);
+}
+
+/* Tarjetas en fila */
+.menu-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Tarjeta de producto */
+.menu-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-light);
+}
+
+/* Tarjeta destacada (popular) */
+.menu-card--featured {
+  border: 2px solid var(--color-accent);
+}
+
+/* Tarjeta especial (nuevo) */
+.menu-card--special {
+  border: 2px solid var(--color-mora);
+}
+
+/* Imagen de la tarjeta */
+.menu-card-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.menu-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.menu-card:hover .menu-card-img img {
+  transform: scale(1.06);
+}
+
+/* Cuerpo de la tarjeta */
+.menu-card-body {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Badge sobre el nombre */
+.menu-card-badge {
+  display: inline-block;
+  background: var(--color-cream-dark);
+  color: var(--color-primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.2rem 0.7rem;
+  border-radius: var(--radius-full);
+  width: fit-content;
+}
+
+.badge--gold {
+  background: #FFF3CD;
+  color: #856404;
+}
+
+.badge--nuevo {
+  background: #F3E5F5;
+  color: #6A1B9A;
+}
+
+.menu-card-body h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+
+.menu-card-body p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  flex: 1;
+}
+
+/* Footer de la tarjeta (precio + botón) */
+.menu-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.menu-card-price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+/* Botón pequeño "Pedir" en cada tarjeta */
+.btn-order {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+.btn-order:hover {
+  background: var(--color-primary-dark);
+  transform: scale(1.05);
+}
+
+
+/* ============================================================
+   9. SECCIÓN DE PEDIDO
+   ============================================================ */
+
+.pedido-section {
+  padding: var(--space-xxl) 0;
+  /* Fondo degradado marrón oscuro para contraste */
+  background: linear-gradient(135deg, #3D1A06 0%, #6B3410 50%, #3D1A06 100%);
+}
+
+.pedido-section .section-header {
+  margin-bottom: 2.5rem;
+}
+
+/* Layout de dos columnas */
+.pedido-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Subtítulos de columnas */
+.pedido-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+/* Grupo de productos por precio */
+.prod-group {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Grupo especial (nuevo) con acento */
+.prod-group--special {
+  border-color: rgba(156,39,176,0.3);
+}
+
+/* Etiqueta del grupo */
+.prod-group-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  background: var(--color-cream);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.prod-group-price {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+/* Fila de un producto con su control de cantidad */
+.prod-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-top: 1px solid var(--color-border);
+  transition: background var(--transition);
+  gap: 0.5rem;
+}
+
+.prod-item:hover {
+  background: var(--color-cream);
+}
+
+/* Estado seleccionado (cuando cantidad > 0) */
+.prod-item.selected {
+  background: rgba(139,58,18,0.04);
+  border-left: 3px solid var(--color-primary);
+}
+
+/* Info del producto (emoji + texto) */
+.prod-item-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.prod-emoji { font-size: 1.5rem; flex-shrink: 0; }
+
+.prod-item-info strong {
+  font-size: 0.88rem;
+  color: var(--color-text);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prod-item-info small {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+}
+
+/* Controles de cantidad (+/-) */
+.prod-qty-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+/* Botones + y - */
+.qty-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-bounce);
+  /* Tamaño mínimo de 44px para accesibilidad táctil */
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.qty-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+  transform: scale(1.1);
+}
+
+.qty-btn:active {
+  transform: scale(0.95);
+}
+
+/* Número de cantidad */
+.qty-val {
+  min-width: 28px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+/* Barra del total */
+.pedido-total-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-cream-dark);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  border: 1px solid var(--color-border);
+}
+
+.pedido-total-bar span {
+  font-size: 0.9rem;
+  color: var(--color-text-mid);
+  font-weight: 600;
+}
+
+#total-display {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  transition: var(--transition);
+}
+
+/* Formulario de datos del cliente */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--color-text-mid);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Campos de texto */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-white);
+  transition: var(--transition);
+  outline: none;
+  -webkit-appearance: none; /* Elimina estilos nativos en Safari/iOS */
+}
+
+/* Estado de foco en campos */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(139,58,18,0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Botón de envío del pedido */
+.btn-pedido {
+  width: 100%;
+  padding: 1.1rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: var(--transition);
+  margin-top: 0.5rem;
+}
+
+.btn-pedido:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-pedido:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Estado deshabilitado (sin productos o datos incompletos) */
+.btn-pedido:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-pedido-icon { font-size: 1.2rem; }
+
+/* Mensaje de ayuda bajo el botón */
+.pedido-hint {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  margin-top: 0.6rem;
+}
+
+
+/* ============================================================
+   10. MODAL DE CONFIRMACIÓN
+   ============================================================ */
+
+/* Overlay oscuro detrás del modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 26, 14, 0.75);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Clase que muestra el modal (añadida por JS) */
+.modal-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Tarjeta del modal */
+.modal {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2rem;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  transform: scale(0.85) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Cuando el overlay está visible, el modal hace "pop" */
+.modal-overlay.visible .modal {
+  transform: scale(1) translateY(0);
+}
+
+.modal-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  animation: bounceIn 0.6s ease;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  margin-bottom: 0.85rem;
+}
+
+.modal-msg {
+  color: var(--color-text-mid);
+  font-size: 0.97rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+/* Detalle del pedido dentro del modal */
+.modal-detail {
+  background: var(--color-cream);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-border);
+  font-size: 0.88rem;
+  color: var(--color-text-mid);
+  line-height: 1.8;
+}
+
+.modal-detail strong {
+  color: var(--color-primary);
+}
+
+
+/* ============================================================
+   11. FOOTER
+   ============================================================ */
+
+.footer {
+  background: var(--color-text);  /* Fondo oscuro */
+  color: rgba(255,255,255,0.8);
+  padding: 3rem 0 1.5rem;
+}
+
+/* Grilla del footer en 3 columnas */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Logo del footer */
+.footer-logo {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-white);
+  margin-bottom: 0.85rem;
+}
+
+.footer-brand p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: rgba(255,255,255,0.65);
+}
+
+/* Teléfonos del footer */
+.footer-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-phones a {
+  color: var(--color-accent);
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+.footer-phones a:hover { color: var(--color-white); }
+
+.footer-col h4 {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-col ul li a,
+.footer-col ul li {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  transition: var(--transition);
+}
+
+.footer-col ul li a:hover {
+  color: var(--color-accent);
+}
+
+/* Línea divisoria inferior */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.25rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+}
+
+
+/* ============================================================
+   12. BOTÓN FLOTANTE DE WHATSAPP
+   ============================================================ */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-whatsapp);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  transition: var(--transition-bounce);
+  cursor: pointer;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+}
+
+/* Aro pulsante verde alrededor del botón */
+.whatsapp-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-whatsapp);
+  animation: waPulse 2.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes waPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.65); opacity: 0; }
+}
+
+
+/* ============================================================
+   13. ANIMACIONES DE ENTRADA (controladas por JS en main.js)
+   ============================================================ */
+
+/* Animaciones del hero — se activan al cargar la página */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.animate-fade-left {
+  opacity: 0;
+  transform: translateX(40px);
+  animation: fadeLeft 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Elementos que aparecen al hacer scroll (IntersectionObserver en main.js) */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-up    { transform: translateY(40px); }
+.reveal-left  { transform: translateX(-50px); }
+.reveal-right { transform: translateX(50px); }
+
+/* Clase "visible" que activa la animación */
+.reveal-up.visible,
+.reveal-left.visible,
+.reveal-right.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* Animación de "rebote" del total cuando cambia */
+@keyframes totalPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+.total-pop { animation: totalPop 0.3s ease; }
+
+
+/* ============================================================
+   14. MEDIA QUERIES — RESPONSIVIDAD
+   Breakpoints:
+     lg: ≤1024px (tablets landscape)
+     md: ≤768px  (tablets portrait / móviles grandes)
+     sm: ≤480px  (móviles estándar)
+     xs: ≤360px  (móviles pequeños)
+   ============================================================ */
+
+/* ---- Tablet grande / laptop pequeño ---- */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr; /* Una sola columna */
+    text-align: center;
+    padding-top: 120px;
+    padding-bottom: 3rem;
+  }
+
+  .hero-image {
+    order: -1; /* La imagen va arriba */
+    margin: 0 auto;
+  }
+
+  .hero-img-wrapper {
+    max-width: 320px;
+  }
+
+  .hero-actions { justify-content: center; }
+  .hero-trust   { justify-content: center; }
+  .hero-badge   { margin: 0 auto; }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nosotros-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .nosotros-card-float {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1; /* Ocupa el ancho completo */
+  }
+}
+
+/* ---- Tablet / móvil grande ---- */
+@media (max-width: 768px) {
+  /* Navbar: mostrar hamburguesa, ocultar menú */
+  .hamburger { display: flex; }
+
+  .nav-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-cream);
+    flex-direction: column;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    gap: 0.25rem;
+  }
+
+  /* Clase que muestra el menú móvil (añadida por JS) */
+  .nav-menu.open { display: flex; }
+
+  .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Hero en columna única */
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  /* Pedido en columna única */
+  .pedido-wrapper {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+  }
+
+  /* Menú: tarjetas en 1 columna si son pocas */
+  .menu-cards {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  /* Nosotros: ajustar tarjeta flotante */
+  .nosotros-features {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer: una columna */
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Móvil estándar ---- */
+@media (max-width: 480px) {
+  /* Contenedor con menos padding lateral */
+  .container { padding: 0 1rem; }
+
+  /* Secciones con menos padding vertical */
+  .nosotros,
+  .galeria,
+  .menu,
+  .pedido-section {
+    padding: 3rem 0;
+  }
+
+  /* Galería de fotos: 2 columnas */
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Tarjetas del menú en 1 columna */
+  .menu-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Los botones del hero ocupan todo el ancho */
+  .hero-actions {
+    flex-direction: column;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Controles de cantidad más grandes en móvil (mejor toque) */
+  .qty-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Pedido: chips de características en una columna */
+  .nosotros-features {
+    grid-template-columns: 1fr;
+  }
+
+  /* Modal: más padding en lados */
+  .modal { padding: 2rem 1.25rem; }
+
+  /* WhatsApp más cercano al borde inferior */
+  .whatsapp-float {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 54px;
+    height: 54px;
+  }
+
+  /* Chips de contacto apilados */
+  .nosotros-contact {
+    flex-direction: column;
+  }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Móvil muy pequeño (Galaxy S8 / iPhone SE) ---- */
+@media (max-width: 360px) {
+  html { font-size: 14px; } /* Reduce la base de fuente levemente */
+
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .pedido-wrapper { padding: 1rem; }
+
+  /* Fila del producto: apilar si hay poco espacio */
+  .prod-item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
